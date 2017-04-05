@@ -45,6 +45,7 @@ void sendmsg(uint8_t *msg, uint8_t len) {
 			_delay_us(200);
 			byte<<=1;
 		}
+		sda(1);
 		_delay_us(200);
 		scl(1); // here we should have an ack
 		_delay_us(400);

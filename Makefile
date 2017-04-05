@@ -1,4 +1,4 @@
-FREQ=8000000
+FREQ=1000000
 MCU=attiny861
 CC=avr-gcc
 LIBS=
