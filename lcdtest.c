@@ -224,7 +224,7 @@ int main(void) {
 	_delay_ms(100);
 
 	char str[]="ANYTHING";
-	int i;
+	int i, j;
 	for(i=0;i<8;i++) {
 		display_digits[i]=alpha[str[i]-'A'];
 	}
@@ -232,6 +232,25 @@ int main(void) {
 	lcd_init();
 
 	lcd_update();
+
+	char limerick[]="THERE WAS A YOUNG LADY FROM CORK WHOSE DAD MADE A FORTUNE IN PORK HE BOUGHT FOR HIS DAUGHTER A TUTOR WHO TAUGHT HER TO BALANCE GREEN PEAS ON HER FORK";
+	while(1) {
+		for(i=0;i<sizeof(limerick)-8;i++) {
+			for(j=0;j<8;j++) {
+				char c=limerick[i+j];
+				if(c>='A' && c<='Z') {
+					display_digits[j]=alpha[c-'A'];
+				} else {
+					display_digits[j]=0;
+				}
+			}
+			lcd_update();
+			_delay_ms(250);
+		}
+		_delay_ms(3000);
+	}
+
+
 
 	// lcd_test();
 
